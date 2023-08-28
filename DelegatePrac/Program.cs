@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,12 @@ namespace DelegatePrac
             //1.Delegator를 활용한 구현방법
            
             products.Sort(SortWithPrice);
+
+            //2. 무명Delegator를 활용한 구현방법
+            products.Sort(delegate (Product x, Product y)
+            {
+                return x.Price.CompareTo(y.Price);
+            });
 
             //출력
             foreach (var item in products)

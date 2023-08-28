@@ -14,6 +14,10 @@ namespace DelegatePrac
         {
             public string Name { get; set; }
             public int Price { get; set; }
+            public override string ToString()
+            {
+                return this.Name+" : "+this.Price;
+            }
 
             
         }
@@ -39,6 +43,16 @@ namespace DelegatePrac
                 return x.Price.CompareTo(y.Price);
             });
 
+            //3. 람다를 활용한 구현 방법
+            products.Sort((x, y) =>
+            {
+                return x.Price.CompareTo(y.Price);
+            });
+
+            //3. 람다를 활용한 구현 방법2
+            products.Sort((x, y) => x.Price.CompareTo(y.Price));
+
+            products.ForEach(p =>Console.WriteLine(p));
             //출력
             foreach (var item in products)
             {
